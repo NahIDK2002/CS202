@@ -6,11 +6,12 @@
 			"label": "C/C++: g++.exe build active file",
 			"command": "C:\\mingw32\\bin\\g++.exe",
 			"args": [
+				"-std=c++17",
 				"-fdiagnostics-color=always",
-				"-g",
-				"-o",
+				"-g",			
 				"20125071_Ex01.cpp", "fraction.cpp",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+				"-o",
+				"${fileDirname}\\20125071_Ex01.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"

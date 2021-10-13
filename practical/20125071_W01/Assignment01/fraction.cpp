@@ -50,6 +50,11 @@ void Fraction::input(int n, int d){
     reduce();
 }
 
+void Fraction::output(int &n, int &d){
+    n=num;
+    d=denom;
+}
+
 void Fraction::add(Fraction other){
     int n,d;
     other.output(n,d);
