@@ -111,11 +111,11 @@ int Fraction::compare(Fraction other){
 }
 
 bool Fraction::isPositive(){
-    return (!isZero() && ((num>0 && denom>0) || (num<0 && denom<0)));
+    return ((num>0 && denom>0) || (num<0 && denom<0));
 }
 
 bool Fraction::isNegative(){
-    return (!isZero() && ((num<0 && denom>0) || (num>0 && denom<0)));
+    return ((num<0 && denom>0) || (num>0 && denom<0));
 }
 
 bool Fraction::isZero(){
