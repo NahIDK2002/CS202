@@ -121,3 +121,7 @@ bool Fraction::isNegative(){
 bool Fraction::isZero(){
     return !num;
 }
+
+void Fraction::display(){
+    cout << num << "/" << denom;
+}

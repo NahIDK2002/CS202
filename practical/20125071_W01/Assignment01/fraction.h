@@ -17,6 +17,7 @@ class Fraction{
     public:
         void input(int n, int d);
         void output(int &n, int &d);
+        void display();
         void add(Fraction other);
         void substract(Fraction other);
         void multiply(Fraction other);
