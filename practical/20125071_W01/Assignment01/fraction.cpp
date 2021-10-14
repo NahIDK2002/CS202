@@ -42,7 +42,7 @@ void Fraction::reduce(){
 
 void Fraction::input(int n, int d){
     if (!d){
-        throw "Error! Denominator can't be 0!";
+        throw "Error! The denominator can't be 0!";
     }
     num=n;
     denom=d;
@@ -55,34 +55,29 @@ void Fraction::output(int &n, int &d){
     d=denom;
 }
 
-void Fraction::add(Fraction other){
-    int n,d;
-    other.output(n,d);
+void Fraction::display(){
+    cout << num << "/" << denom;
+}
 
-    num*=d;
-    num+=n*denom;
-    denom*=d;
+void Fraction::add(Fraction other){
+    num*=other.denom;
+    num+=other.num*denom;
+    denom*=other.denom;
 
     reduce();
 }
 
 void Fraction::substract(Fraction other){
-    int n,d;
-    other.output(n,d);
-
-    num*=d;
-    num-=n*denom;
-    denom*=d;
+    num*=other.denom;
+    num-=other.num*denom;
+    denom*=other.denom;
 
     reduce();
 }
 
 void Fraction::multiply(Fraction other){
-    int n,d;
-    other.output(n,d);
-
-    num*=n;
-    denom*=d;
+    num*=other.num;
+    denom*=other.denom;
 
     reduce();
 }
@@ -91,20 +86,15 @@ void Fraction::divide(Fraction other){
     if (other.isZero()){
         throw "Error! Divided by 0!";
     }
-    int n,d;
-    other.output(n,d);
 
-    num*=d;
-    denom*=n;
+    num*=other.denom;
+    denom*=other.num;
 
     reduce();
 }
 
 int Fraction::compare(Fraction other){
-    int n,d;
-    other.output(n,d);
-
-    int a=num*d, b=n*denom;
+    int a=num*other.denom, b=other.num*denom;
     if (a<b) return -1;
     else if (a==b) return 0;
     else return 1;
@@ -120,8 +110,4 @@ bool Fraction::isNegative(){
 
 bool Fraction::isZero(){
     return !num;
-}
-
-void Fraction::display(){
-    cout << num << "/" << denom;
 }

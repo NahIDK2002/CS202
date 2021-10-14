@@ -7,23 +7,26 @@ int main(){
         Fraction a,b;
         readFile(a,b,"input.txt");
 
-        int num,denom;
         a.add(b);
-        a.output(num,denom);
-        cout << "Add: " << num << "/" << denom << "\n";
+        cout << "Add: ";
+        a.display();
+        cout << "\n";
 
         a.substract(b);
-        a.output(num,denom);
-        cout << "Substract: " << num << "/" << denom << "\n";
+        cout << "Substract: ";
+        a.display();
+        cout << "\n";
 
         a.multiply(b);
-        a.output(num,denom);
-        cout << "Multiply: " << num << "/" << denom << "\n";
+        cout << "Multiply: ";
+        a.display();
+        cout << "\n";
 
         try {
             a.divide(b);
-            a.output(num,denom);
-            cout << "Divide: " << num << "/" << denom << "\n"; 
+            cout << "Divide: ";
+            a.display();
+            cout << "\n"; 
         }
         catch(string msg){
             cout << msg << "\n";
