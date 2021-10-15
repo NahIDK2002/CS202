@@ -15,6 +15,7 @@ class Point{
         Point();
         Point(double x, double y);
         void output(double &x, double &y);
+        void display();
         double distanceToOther(Point other);
         double distanceToOx();
         double distanceToOy();
@@ -30,6 +31,7 @@ class Triangle{
         Triangle(Point a, Point b, Point c);
         Triangle(double xa, double ya, double xb, double yb, double xc, double yc);
         void output(Point &a, Point &b, Point &c);
+        void display();
         int typeOfTriangle();
         double parameter();
         double area();
