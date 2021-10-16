@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <math.h>
 
 using namespace std;
 
@@ -33,7 +34,7 @@ class Triangle{
         void output(Point &a, Point &b, Point &c);
         void display();
         int typeOfTriangle();
-        double parameter();
+        double perimeter();
         double area();
         Point centerG();
 };

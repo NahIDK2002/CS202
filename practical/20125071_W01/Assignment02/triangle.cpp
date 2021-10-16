@@ -32,7 +32,7 @@ void Point::output(double &x, double &y){
 }
 
 void Point::display(){
-    cout << "Point: (" << x << ", " << y << "\n";
+    cout << "Point: (" << x << ", " << y << ")\n";
 }
 
 double Point::distanceToOther(Point other){
@@ -52,6 +52,8 @@ bool Triangle::isValid(){
 
     return (da<db+dc && db<da+dc && dc<da+db);
 }
+
+Triangle::Triangle(){}
 
 Triangle::Triangle(Point a, Point b, Point c){
     A=a;
@@ -98,17 +100,33 @@ int Triangle::typeOfTriangle(){
     if (da==db && db==dc){
         return 4;       
     }
-    else if (da*da==db*db+dc*dc || db*db==da*da+dc*dc || dc*dc==da*da + db*db){
-        //Isosceles right triangle
-        if (da==db || db==dc || da==dc) return 3;   
-        //Right triangle
-        else return 2;  
-    }
-    //Isosceles triangle
-    else if (da==db || db==dc || da==dc){
-        return 1;
-    }
-    //scalene triangle
-    else return 0;
+
+    int ans=0;
+    ans += (da*da==db*db+dc*dc || db*db==da*da+dc*dc || dc*dc==da*da + db*db)*2;    //if triangle has right angle
+    ans += (da==db || db==dc || da==dc);    //if triangle is isosceles
+    
+    return ans;
 }
 
+double Triangle::perimeter(){
+    return A.distanceToOther(B)+B.distanceToOther(C)+C.distanceToOther(A);
+}
+
+double Triangle::area(){
+    double p=perimeter()/2;
+
+    return sqrt(p*(p-A.distanceToOther(B))*(p-B.distanceToOther(C))*(p-C.distanceToOther(A)));
+}
+
+Point Triangle::centerG(){
+    double xa,ya;
+    A.output(xa,ya);
+
+    double xb,yb;
+    B.output(xb,yb);
+
+    double xc,yc;
+    C.output(xc,yc);
+
+    return Point((xa+xb+xc)/3,(ya+yb+yc)/3);
+}
