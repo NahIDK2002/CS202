@@ -1,4 +1,4 @@
-#include "queue.h";
+#include "queue.h"
 
 using namespace std;
 
@@ -67,13 +67,18 @@ void LinkedListQueue::enqueue(int x){
         tail->next = new Node(x);
         tail=tail->next;
     }
+    ++num;
 }
 
 int LinkedListQueue::dequeue(){
+    if (!num){
+        throw "Error! There's no element in queue!";
+    }
     int ans=head->val;
     Node *tmp=head;
     head=head->next;
     delete tmp;
+    --num;
 
     return ans;
 }
@@ -98,4 +103,5 @@ void LinkedListQueue::clear(){
     }
 
     tail=0;
+    num=0;
 }
