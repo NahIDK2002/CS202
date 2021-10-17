@@ -6,6 +6,8 @@
 #include <string>
 #include <math.h>
 
+#define _USE_MATH_DEFINES
+
 using namespace std;
 
 class Point{
@@ -13,8 +15,7 @@ class Point{
         double x, y;
 
     public:
-        Point();
-        Point(double x, double y);
+        void init(double x=0, double y=0);
         void output(double &x, double &y);
         void display();
         double distanceToOther(Point other);
@@ -26,6 +27,7 @@ class Triangle{
     private:
         Point A,B,C;
         bool isValid();
+        bool checkHasRightAngle(double a, double b, double c);
 
     public:
         Triangle();

@@ -15,7 +15,7 @@ class Fraction{
         void reduce();
 
     public:
-        void input(int n, int d);
+        void input(int n=0, int d=1);
         void output(int &n, int &d);
         void display();
         void add(Fraction other);

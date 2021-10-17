@@ -17,11 +17,7 @@ void readFile(Triangle &ABC, string file){
     f.close();
 }
 
-Point::Point(){
-    x=0; y=0;
-}
-
-Point::Point(double x, double y){
+void Point::init(double x, double y){
     this->x=x;
     this->y=y;
 }
@@ -66,9 +62,9 @@ Triangle::Triangle(Point a, Point b, Point c){
 }
 
 Triangle::Triangle(double xa, double ya, double xb, double yb, double xc, double yc){
-    A=Point(xa,ya);
-    B=Point(xb,yb);
-    C=Point(xc,yc);
+    A.init(xa,ya);
+    B.init(xb,yb);
+    C.init(xc,yc);
     
     if (!isValid()){
         throw "Error! The triangle is not valid!";
@@ -93,6 +89,11 @@ void Triangle::display(){
     cout << "              C(" << x << ", " << y << ")\n";
 }
 
+bool Triangle::checkHasRightAngle(double a, double b, double c){
+    double x=a*a+b*b, y=c*c;
+    return fabs(x - y) / max(fabs(x), fabs(y)) <= __DBL_EPSILON__;
+}
+
 int Triangle::typeOfTriangle(){
     double da=A.distanceToOther(B), db=B.distanceToOther(C), dc=C.distanceToOther(A);
 
@@ -102,8 +103,10 @@ int Triangle::typeOfTriangle(){
     }
 
     int ans=0;
-    ans += (da*da==db*db+dc*dc || db*db==da*da+dc*dc || dc*dc==da*da + db*db)*2;    //if triangle has right angle
-    ans += (da==db || db==dc || da==dc);    //if triangle is isosceles
+    //if triangle has right angle
+    if (checkHasRightAngle(da,db,dc) || checkHasRightAngle(db,da,dc) || checkHasRightAngle(dc,da,db)) ans+=2;
+    //if triangle is isosceles
+    ans += (da==db || db==dc || da==dc);    
     
     return ans;
 }
@@ -128,5 +131,8 @@ Point Triangle::centerG(){
     double xc,yc;
     C.output(xc,yc);
 
-    return Point((xa+xb+xc)/3,(ya+yb+yc)/3);
+    Point G;
+    G.init((xa+xb+xc)/3,(ya+yb+yc)/3);
+
+    return G;
 }
