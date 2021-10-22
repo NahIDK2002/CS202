@@ -38,7 +38,7 @@ Circle::Circle(Point2D c, Point2D pOnLine){
     radius = c.distanceToOther(pOnLine);
 }
 
-Circle::Circle(Circle &other){
+Circle::Circle(const Circle &other){
     center=other.center;
     radius=other.radius;
 }

@@ -1,17 +1,17 @@
-#include "circle.h"
+#include "date.h"
 
 using namespace std;
 
 int main(){
     cout << "1st constructor:\n";
-    Circle c1;
-    c1.display();
+    MyDate d1;
+    d1.display();
     cout << "\n";
 
     cout << "2nd constructor:\n";
     try{
-        Circle c2(Point2D(0,1),0);
-        c2.display();
+        MyDate d2(-1);
+        d2.display();
     }
     catch (const char *msg){
         cout << msg << "\n";
@@ -20,23 +20,28 @@ int main(){
 
     cout << "3rd constructor:\n";
     try{
-        Circle c3(Point2D(5,3),-4.2);
-        c3.display();
+        MyDate d3(12,6);
+        d3.display();
+    }
+    catch(const char *msg){
+        cout << msg << "\n";
+    }
+    cout << "\n";
+
+    cout << "4th constructor:\n";
+    try{
+        MyDate d4(23,1,2012);
+        d4.display();
     }
     catch (const char *msg){
         cout << msg << "\n";
     }
     cout << "\n";
 
-    cout << "4th constructor:\n";
-    Circle c4(Point2D(4,6),Point2D(1,2));
-    c4.display();
-    cout << "\n";
-
     cout << "5th constructor:\n";
-    Circle c5(c1);
-    c5.display();
-    cout << "\n";
+    MyDate d5(d1);
+    d5.display();
+    cout <<"\n";
 
     return 0;
 }

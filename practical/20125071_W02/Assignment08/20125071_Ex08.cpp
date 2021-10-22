@@ -1,17 +1,17 @@
-#include "circle.h"
+#include "array.h"
 
 using namespace std;
 
 int main(){
     cout << "1st constructor:\n";
-    Circle c1;
-    c1.display();
+    MyIntArray a1;
+    a1.display();
     cout << "\n";
 
     cout << "2nd constructor:\n";
     try{
-        Circle c2(Point2D(0,1),0);
-        c2.display();
+        MyIntArray a2(5);
+        a2.display();
     }
     catch (const char *msg){
         cout << msg << "\n";
@@ -20,8 +20,8 @@ int main(){
 
     cout << "3rd constructor:\n";
     try{
-        Circle c3(Point2D(5,3),-4.2);
-        c3.display();
+        MyIntArray a3(7,2);
+        a3.display();
     }
     catch (const char *msg){
         cout << msg << "\n";
@@ -29,13 +29,14 @@ int main(){
     cout << "\n";
 
     cout << "4th constructor:\n";
-    Circle c4(Point2D(4,6),Point2D(1,2));
-    c4.display();
+    int a[4]={1,2,3,4};
+    MyIntArray a4(0,a);
+    a4.display();
     cout << "\n";
 
     cout << "5th constructor:\n";
-    Circle c5(c1);
-    c5.display();
+    MyIntArray a5(a4);
+    a5.display();
     cout << "\n";
 
     return 0;

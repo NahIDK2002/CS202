@@ -26,7 +26,7 @@ class Circle{
         Circle(Point2D c, double r);
         Circle(double r, Point2D c);
         Circle(Point2D c, Point2D pOnLine);        
-        Circle(Circle &other);
+        Circle(const Circle &other);
         ~Circle();
         void display();
 };
