@@ -3,13 +3,10 @@
 using namespace std;
 
 int main(){
-    Fraction a, b(7), c(2,5);
-    a.print();
-    b.print();
-    c.print();
+    Fraction a(2,3);
+    Fraction x = a;
 
-    Fraction d(c);
-    d.print();
+    x.display();
     
     return 0;
 }

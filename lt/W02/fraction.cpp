@@ -22,10 +22,8 @@ bool Fraction::isZero(){
     return (!num);
 }
 
-Fraction::Fraction(int n, int d){
+Fraction::Fraction(int n, int d): num(n), denom(d){
     if (!d) return;
-    num=n;
-    denom=d;
 }
 
 Fraction::Fraction(const Fraction &other){
@@ -38,7 +36,7 @@ void Fraction::output(int &n, int &d){
     d=denom;
 }
 
-void Fraction::print(){
+void Fraction::display(){
     cout << "Fraction: " << num << "/" << denom << "\n";
 }
 
@@ -58,4 +56,9 @@ void Fraction::divide(Fraction other){
     denom*=other.num;
 
     reduce();
+}
+
+void Fraction::operator=(const Fraction &other){
+    num=other.num;
+    denom=other.denom;
 }

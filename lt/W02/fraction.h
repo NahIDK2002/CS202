@@ -19,9 +19,10 @@ class Fraction{
         Fraction(int n=0, int d=1);
         Fraction(const Fraction &other);
         void output(int &n, int &d);
-        void print();
+        void display();
         void add(Fraction other);
         void divide(Fraction other);
+        void operator = (const Fraction &other);
 };
 
 #endif
