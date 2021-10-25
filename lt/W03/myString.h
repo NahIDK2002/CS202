@@ -14,7 +14,7 @@ class MyString{
         MyString(const MyString &other);
         ~MyString();
         void display();
-        void operator=(const MyString &other);
+        MyString& operator=(MyString *other);
 };
 
 #endif

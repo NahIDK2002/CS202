@@ -4,9 +4,10 @@ using namespace std;
 
 int main(){
     Fraction a(2,3);
-    Fraction x = a;
+    Fraction b(8,9);
+    Fraction x = 5+b;
 
-    x.display();
+    cout << x;
     
     return 0;
 }

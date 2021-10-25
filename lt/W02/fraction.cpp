@@ -22,8 +22,12 @@ bool Fraction::isZero(){
     return (!num);
 }
 
-Fraction::Fraction(int n, int d): num(n), denom(d){
-    if (!d) return;
+Fraction::Fraction(int n, int d){
+    if (!d){
+        throw "Error! The denominator can't be a 0!";
+    }
+    num=n;
+    denom=d;
 }
 
 Fraction::Fraction(const Fraction &other){
@@ -40,25 +44,57 @@ void Fraction::display(){
     cout << "Fraction: " << num << "/" << denom << "\n";
 }
 
-void Fraction::add(Fraction other){
+Fraction& Fraction::operator=(const Fraction &other){
+    num=other.num;
+    denom=other.denom;
+
+    return *this;
+}
+
+Fraction& Fraction::operator+=(const Fraction &other){
     num*=other.denom;
     num+=other.num;
 
     denom*=other.denom;
 
     reduce();
+
+    return *this;
 }
 
-void Fraction::divide(Fraction other){
-    if (other.isZero()) return;
+Fraction& Fraction::operator/=(Fraction other){
+    if (other.isZero()){
+        throw "Error! Can't be divided by 0!";
+    }
 
     num*=other.denom;
     denom*=other.num;
 
     reduce();
+    return *this;
 }
 
-void Fraction::operator=(const Fraction &other){
-    num=other.num;
-    denom=other.denom;
+const Fraction Fraction::operator+(const Fraction other){
+    return Fraction(num*other.denom + other.num*denom,denom*other.denom);
+}
+
+const Fraction Fraction::operator/(Fraction other){
+    if (other.isZero()){
+        throw "Error! Can't divided by 0!";
+    }
+    return Fraction(num*other.denom,denom*other.num);
+}
+
+const Fraction Fraction::operator+(const int x){
+    return Fraction(num + x*denom,denom);
+}
+
+ostream& operator<< (ostream &os,const Fraction &f){
+    os << "Fraction: " << f.num << "/" << f.denom << "\n";
+
+    return os;
+}
+
+const Fraction operator+ (const int &x, const Fraction &f){
+    return Fraction(x*f.denom+f.num,f.denom);
 }
