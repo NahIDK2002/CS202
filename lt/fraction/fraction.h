@@ -2,8 +2,7 @@
 #define FRACTION_H_
 
 #include <iostream>
-#include <fstream>
-#include <string>
+#include <math.h>
 
 using namespace std;
 
@@ -18,15 +17,29 @@ class Fraction{
     public:
         Fraction(int n=0, int d=1);
         Fraction(const Fraction &other);
-        void output(int &n, int &d);
-        void display();
+
         Fraction& operator= (const Fraction &other);
+
         Fraction& operator+=(const Fraction &other);
         Fraction& operator/=(Fraction other);
+        
         const Fraction operator+(const Fraction other);
         const Fraction operator/(const Fraction other);
+
         const Fraction operator+(const int x);
         friend const Fraction operator+(const int &x, const Fraction &f);
+
+        const Fraction& operator++();
+        const Fraction operator++(int);
+        const Fraction& operator--();
+        const Fraction operator--(int);
+
+        const bool operator==(const Fraction& other);
+        const bool operator>(const Fraction& other);
+        const bool operator>=(const Fraction& other);
+        const bool operator<(const Fraction& other);
+        const bool operator<=(const Fraction& other);
+
         friend ostream& operator<<(ostream &os, const Fraction &f);
 };
 

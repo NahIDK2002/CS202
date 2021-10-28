@@ -13,7 +13,7 @@ int Fraction::gcd(int a, int b){
 }
 
 void Fraction::reduce(){
-    int GCD=gcd(num,denom);
+    int GCD=gcd(abs(num),abs(denom));
     num/=GCD;
     denom/=GCD;
 }
@@ -33,15 +33,6 @@ Fraction::Fraction(int n, int d){
 Fraction::Fraction(const Fraction &other){
     num=other.num;
     denom=other.denom;
-}
-
-void Fraction::output(int &n, int &d){
-    n=num;
-    d=denom;
-}
-
-void Fraction::display(){
-    cout << "Fraction: " << num << "/" << denom << "\n";
 }
 
 Fraction& Fraction::operator=(const Fraction &other){
@@ -87,6 +78,55 @@ const Fraction Fraction::operator/(Fraction other){
 
 const Fraction Fraction::operator+(const int x){
     return Fraction(num + x*denom,denom);
+}
+
+const Fraction& Fraction::operator++(){
+    num+=denom;
+    reduce();
+    return *this;
+}
+
+const Fraction Fraction::operator++(int){
+    Fraction f=*this;
+    this->num+=f.denom;
+    this->reduce();
+
+    return f;
+}
+
+const Fraction& Fraction::operator--(){
+    num-=denom;
+    reduce();
+
+    return *this;
+}
+
+const Fraction Fraction::operator--(int){
+    Fraction f=*this;
+    this->num-=f.denom;
+    this->reduce();
+
+    return f;
+}
+
+const bool Fraction::operator==(const Fraction &other){
+    return (num*other.denom==other.num*denom);
+}
+
+const bool Fraction::operator>(const Fraction &other){
+    return (num*other.denom>other.num*denom);
+}
+
+const bool Fraction::operator>=(const Fraction &other){
+    return (num*other.denom>=other.num*denom);
+}
+
+const bool Fraction::operator<(const Fraction &other){
+    return (num*other.denom<other.num*denom);
+}
+
+const bool Fraction::operator<=(const Fraction &other){
+    return (num*other.denom<=other.num*denom);
 }
 
 ostream& operator<< (ostream &os,const Fraction &f){
