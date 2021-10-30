@@ -24,10 +24,12 @@ bool Fraction::isZero(){
 
 Fraction::Fraction(int n, int d){
     if (!d){
-        throw "Error! The denominator can't be a 0!";
+        cout << "Error! The denominator can't be a 0!";
+        exit(0);
     }
     num=n;
     denom=d;
+    reduce();
 }
 
 Fraction::Fraction(const Fraction &other){
