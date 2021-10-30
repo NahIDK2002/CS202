@@ -15,12 +15,12 @@ int main()
 	d6=d3.Tomorrow();
 	d5=d6.Yesterday();
 	
-	cout<<(d6==d4);
-	cout<<(d6!=d4);
-	cout<<(d6>=d4);
-	cout<<(d6<=d4);
-	cout<<(d6>d4);
-	cout<<(d6<d4);
+	cout<<(d6==d4) << "\n";
+	cout<<(d6!=d4) << "\n";
+	cout<<(d6>=d4) << "\n";
+	cout<<(d6<=d4) << "\n";
+	cout<<(d6>d4) << "\n";
+	cout<<(d6<d4) << "\n";
 
 	d3=d2+1;
 	d2=d3-2;
@@ -29,16 +29,19 @@ int main()
 	cout << d5-- << "\n";
 	cout << --d6 << "\n";
 
-	cout<<d3;
-	cin>>d4;
+	cout<<d3 << "\n";
+	// cin>>d4;
 	
-	// cout<<(int)d3;			// from the first day of current year
+	cout<<(int)d3 << "\n";			// from the first day of current year
 	
-	// cout<<(long)d4; 		// from 1/1/1
+	cout<<(long)d4 << "\n"; 		// from 1/1/1
 
-	// Date d7;
-	// d7+=7;
-	// d2-=6;
+	Date d7;
+	d7+=7;
+	d2-=6;
+
+	cout << d7 << "\n";
+	cout << d2 << "\n";
 
 	return 0;
 }

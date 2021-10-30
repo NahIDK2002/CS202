@@ -3,7 +3,6 @@
 using namespace std;
 
 int Fraction::gcd(int a, int b){
-    a=abs(a); b=abs(b);
     if (!a || !b) return b;
     while (a!=b){
         if (a<b) b-=a;
@@ -14,7 +13,7 @@ int Fraction::gcd(int a, int b){
 }
 
 void Fraction::reduce(){
-    int GCD=gcd(num,denom);
+    int GCD=gcd(abs(num),abs(denom));
     num/=GCD;
     denom/=GCD;
 
@@ -81,8 +80,28 @@ const Fraction operator-(const int &n, const Fraction &f){
     return Fraction(f.num-n*f.denom,f.denom);
 }
 
+const Fraction Fraction::operator*(const int &n){
+    return Fraction(num*n,denom);
+}
+
 const Fraction operator*(const int &n, const Fraction &f){
     return Fraction(f.num*n,f.denom);
+}
+
+const Fraction Fraction::operator/(const int &n){
+    if (!n){
+        cout << "Error! Can't divided by 0!\n";
+        exit(0);
+    }
+    return Fraction(num,denom*n);
+}
+
+const Fraction operator/(const int &n, const Fraction &f){
+    if (!f.num){
+        cout << "Error! Can't divided by 0!\n";
+        exit(0);
+    }
+    return Fraction(n*f.denom,f.num);
 }
 
 bool Fraction::operator==(const Fraction &other){

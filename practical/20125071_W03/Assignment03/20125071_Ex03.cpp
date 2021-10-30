@@ -19,12 +19,14 @@ int main()
 	m5=m2;
 
 	// cin>>m2;
-	// cout<<m2;
+	// cout<<m2 << "\n";
 
-	// cout<<m3[7];
-	// m3[7]=1;
+	cout<<m3[6] << "\n";
+	m4[2]=1;
 
-	// cout<<(int)m4;
+	cout<<(int)m4 << "\n";
+	cout << m4 << "\n";
+	cout << m3 << "\n";
 
 	return 0;
 }

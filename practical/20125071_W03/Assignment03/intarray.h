@@ -17,10 +17,10 @@ class IntArray{
         ~IntArray();
 
         const IntArray& operator=(const IntArray &other);
+        int& operator [](const int &pos);
 
-        const int& operator int()();
-        const int& operator [](const int &pos);
-
+        operator int() const;
+        
         friend istream& operator>>(istream &is, IntArray &newArr);
         friend ostream& operator<<(ostream &os, const IntArray &arr);
 };

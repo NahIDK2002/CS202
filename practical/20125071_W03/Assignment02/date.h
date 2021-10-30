@@ -37,10 +37,17 @@ class Date
         const Date operator+(const int &n);
         const Date operator-(const int &n);
 
+        const Date& operator+=(const int &n);
+        const Date& operator-=(const int &n);
+
         const Date operator++();
         const Date operator++(int);
         const Date operator--();
         const Date operator--(int);
+
+        operator int();
+        operator long();
+
 
         friend ostream& operator<< (ostream &os, const Date &d);
         friend istream& operator>>(istream &is, Date &d);

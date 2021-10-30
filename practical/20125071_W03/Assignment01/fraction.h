@@ -27,7 +27,10 @@ class Fraction{
         friend const Fraction operator+(const int &n, const Fraction &f);
         const Fraction operator-(const int &n);
         friend const Fraction operator-(const int &n, const Fraction &f);
+        const Fraction operator* (const int &n);
         friend const Fraction operator*(const int &n, const Fraction &f);
+        const Fraction operator/ (const int &n);
+        friend const Fraction operator/ (const int &n, const Fraction &f);
 
         bool operator==(const Fraction &other);
         bool operator>(const Fraction &other);

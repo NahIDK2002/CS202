@@ -215,6 +215,16 @@ const Date Date::operator-(const int &n){
     return newDate;
 }
 
+const Date& Date::operator+=(const int &n){
+    *this=*this+n;
+    return *this;
+}
+
+const Date& Date::operator-=(const int &n){
+    *this=*this-n;
+    return *this;
+}
+
 const Date Date::operator++(){
     day++;
     if (day>this->numDaysInMonth(year,month)){
@@ -271,6 +281,32 @@ const Date Date::operator--(int){
     }
 
     return d;
+}
+
+Date::operator int(){
+    int ans=0;
+    int tDay=day, tMon=month;
+    while (tMon>1){
+        ans+=numDaysInMonth(year,tMon);
+        tMon--;
+    }
+    return ans+tDay-1;
+}
+
+Date::operator long(){
+    long ans=0;
+    long tDay=day, tMon=month, tYear=year;
+    while (tYear>1){
+        ans += isLeapYear(tYear) ? 366:365;
+        tYear--;
+    }
+    
+    while (tMon>1){
+        ans+= numDaysInMonth(tYear,tMon);
+        tMon--;
+    }
+
+    return ans+tDay-1;
 }
 
 ostream& operator<< (ostream&os, const Date &d){

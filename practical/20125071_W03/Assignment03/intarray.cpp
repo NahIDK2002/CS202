@@ -3,11 +3,11 @@
 using namespace std;
 
 IntArray::IntArray(int size, int val){
-    n=size;
-    if (!n){
+    if (!size){
         a=0;
     }
     else{
+       n=size; 
         a = new int [n];
         for (int i=0;i<n;++i){
             a[i]=val;
@@ -16,11 +16,11 @@ IntArray::IntArray(int size, int val){
 }
 
 IntArray::IntArray(int arr[], int size){
-    n=size;
-    if (!n){
+    if (!size){
         a=0;
     } 
     else{
+        n=size;
         a = new int [n];
         for (int i=0;i<n;++i){
             a[i]=arr[i];
@@ -51,6 +51,18 @@ const IntArray& IntArray::operator=(const IntArray &other){
     }
 
     return *this;
+}
+
+int& IntArray::operator[](const int &pos){
+    if (pos<0 || pos>=n){
+        cout << "Error! Accessing array out of bound!\n";
+        exit(0);
+    }
+    return a[pos];
+}
+
+IntArray::operator int() const{
+    return n;
 }
 
 istream& operator>>(istream &is, IntArray &newArr){
