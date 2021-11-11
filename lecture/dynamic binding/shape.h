@@ -31,12 +31,12 @@ public:
 
 class Shape{
 private:
-    virtual bool isValid();
+    virtual bool isValid() = 0;
 public:
     virtual ~Shape();
-    virtual void input();
-    virtual string type();
-    virtual float area();
+    virtual void input() = 0;
+    virtual string type() = 0;
+    virtual float area() = 0;
 };
 
 class Triangle : public Shape{

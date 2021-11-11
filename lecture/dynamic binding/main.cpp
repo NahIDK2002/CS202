@@ -7,7 +7,7 @@ int main(){
     s.input();
     s.output();
 
-    cout << "\n\nTotal area: " << s.totalArea() << "\n";;
+    cout << "Total area: " << s.totalArea() << "\n";;
     
 
     return 0;

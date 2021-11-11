@@ -46,19 +46,7 @@ bool Point::isInside(){
 
 Shape::~Shape(){}
 
-bool Shape::isValid(){
-    return 0;
-}
 
-void Shape::input(){}
-
-string Shape::type(){
-    return "";
-}
-
-float Shape::area(){
-    return 0;
-}
 
 bool Triangle::isValid(){
     float da=A.distanceToOther(B), db=B.distanceToOther(C), dc=C.distanceToOther(A);
