@@ -18,15 +18,10 @@ class Fraction{
         Fraction(int n=0, int d=1);
         Fraction(const Fraction &other);
 
-        //Fraction& operator= (const Fraction &other);
-
         Fraction& operator+=(const Fraction &other);
         Fraction& operator/=(Fraction other);
         
-        //const Fraction operator+(const Fraction other);
         const Fraction operator/(const Fraction other);   
-
-        //friend const Fraction operator+(const int &x, const Fraction &f);
 
         const Fraction& operator++();
         const Fraction operator++(int);
@@ -40,8 +35,6 @@ class Fraction{
         const bool operator<=(const Fraction& other);
 
         ostream& display(ostream &os);
-
-        //friend ostream& operator<<(ostream &os, const Fraction &f);
 };
 Fraction operator+(Fraction a, Fraction b);
 ostream& operator<<(ostream &os, Fraction f);
